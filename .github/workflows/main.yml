@@ -15,20 +15,18 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  axe:
     runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: "npm"
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm start & npx wait-on http://localhost:3000
-      - run: axe http://localhost:3000 --exit
+    - uses: actions/checkout@v2
+    - name: Use NodeJS 12.x
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12.x
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm start & npx wait-on http://localhost:3000
+    - name: Run Axe
+      run: |
+        npm install -g @axe-core/cli
+        axe http://localhost:3000 --exit
