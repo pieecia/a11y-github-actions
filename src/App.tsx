@@ -3,11 +3,14 @@ import './App.css';
 
 function App() {
   return (
-    <div className="App-header">
-      <main role="main">
-        <p>Put main content here.</p>
-      </main>
-    </div>
+    <React.Fragment>
+      <h1>Strona główna</h1>
+      <div className="App-header">
+        <main role="main">
+          <p>Put main content here.</p>
+        </main>
+      </div>
+    </React.Fragment>
   );
 }
 
