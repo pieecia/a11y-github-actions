@@ -4,7 +4,9 @@ import './App.css';
 function App() {
   return (
     <React.Fragment>
-      <h1>Strona główna</h1>
+      <div role="banner">
+        <h1>Strona główna</h1>
+      </div>
       <div className="App-header">
         <main role="main">
           <p>Put main content here.</p>
