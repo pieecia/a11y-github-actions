@@ -20,7 +20,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "axe http://localhost:3000/ --show-errors --exit",
+    "test": "axe http://localhost:3000/ --exit",
     "ci": "start-server-and-test start http://localhost:3000 test",
     "eject": "react-scripts eject"
   },
